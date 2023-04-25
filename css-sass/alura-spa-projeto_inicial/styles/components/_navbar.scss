@@ -1,0 +1,20 @@
+@import '../abstract/variaveis';
+
+nav{
+    text-align: center;
+    ul{
+        li{
+            display: inline-block;
+            padding: 1rem;
+            a{
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $cor-primaria;
+                &:hover{ //& é o seletor especial do Sass, pode ser para pseudoclasses ou seletores
+                    border-bottom: 2px solid $cor-secundaria;
+                }
+            }
+        }
+    }
+}

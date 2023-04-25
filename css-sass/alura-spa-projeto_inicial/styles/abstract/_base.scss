@@ -1,0 +1,8 @@
+
+//esse arquivo é uma scss particionado (parte de algo, no caso fontes). O nome é convenção, começa com underline.
+@import './variaveis';
+
+html, body{
+    font-family: $fonte;
+
+}
