@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  
+}
+
+body{
+  font-family: 'Open Sans', Helvetica;
+  background-image: linear-gradient(to right, #4556a8, #4a98bc) ;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.txt{
+    color: #FFF;
+    text-transform: uppercase;
+}
+.txt1::before{
+    content: '';
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.85);
+    background-color: white;
+    position: absolute;
+    border-radius: 25%;
+
+}
+.txt::after{
+    background-color: #ffffff;
+    content: '';
+    height: calc(100px * 0.20);
+    width: calc(100px * 0.90);
+    position: absolute;
+    border-radius: 25%;
+    transform: rotate(292deg) ;
+}
+
+.txt1::before{
+    transform: rotate(90deg);
+}
+
+
+
+
+.txt2{
+    font-size: 100px;
+    
+}
+.txt3{
+    font-size: 50px;
+    
+}
+
+/* .cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before{ */
+    /* o que vai ficar antes e depois são as perninhas do X */
+    /* content: '';
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.90);
+    background-color: white;
+    position: absolute;
+} */
