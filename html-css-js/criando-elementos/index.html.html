@@ -26,11 +26,25 @@
                          <select id="bairros" onchange="buscaEnderecos(this.value)"></select>
                  </div>
              </div>
-             <div class="enderecos-grid">
-                <p id="enderecos">
+             
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome: </th>
+                            <th>Telefone: </th>
+                            <th>Endereço: </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="enderecos"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <p id="enderecos">
                     ...
-                </p>
-             </div>
+                </p> -->
+             
         </div>
     </div>
 
@@ -65,36 +79,74 @@ function buscaBairros(e){
     }
 }
 
+function buscaEnderecos(e) {
+  document.querySelector('#enderecos').innerHTML = '';
+  let infos_bairro = document.querySelector('#enderecos');
 
-function buscaEnderecos(e){
-    document.querySelector('#enderecos').innerHTML='';
-    let infos_bairro = document.querySelector('#enderecos');
+  let num_bairros = lista_enderecos.bairro.length;
+  let b_index = -1;
 
-    let num_bairros = lista_enderecos.bairro.length;
-    let b_index = -1;
-
-    for(let x = 0; x < num_bairros; x++) {
-        if (lista_enderecos.bairro[x].nome === e) {
-            b_index = x;
-            break;
-        }
+  for (let x = 0; x < num_bairros; x++) {
+    if (lista_enderecos.bairro[x].nome === e) {
+      b_index = x;
+      break;
     }
+  }
 
-    if (b_index !== -1) {
-        let bairro = lista_enderecos.bairro[b_index];
-        let bairro_paragrafo = document.createElement('td');
-        let bairro_paragrafo1 = document.createElement('td');
-        let bairro_paragrafo2 = document.createElement('td');
-        bairro_paragrafo.textContent = `Nome: ${bairro.unidade}`;
-        bairro_paragrafo1.textContent = `Telefone: ${bairro.telefone}`;
-        bairro_paragrafo2.textContent = `Endereço: ${bairro.logradouro}`;
-        infos_bairro.appendChild(bairro_paragrafo);
-        infos_bairro.appendChild(bairro_paragrafo1);
-        infos_bairro.appendChild(bairro_paragrafo2);
-    } else {
-        document.querySelector('#enderecos').innerHTML = '';
-    }
+  if (b_index !== -1) {
+    let bairro = lista_enderecos.bairro[b_index];
+
+    let row = document.createElement('tr');
+
+    let nome_td = document.createElement('td');
+    nome_td.textContent = bairro.nome;
+    row.appendChild(nome_td);
+
+    let telefone_td = document.createElement('td');
+    telefone_td.textContent = bairro.telefone;
+    row.appendChild(telefone_td);
+
+    let endereco_td = document.createElement('td');
+    endereco_td.textContent = bairro.logradouro;
+    row.appendChild(endereco_td);
+
+    infos_bairro.appendChild(row);
+  } else {
+    document.querySelector('#enderecos').innerHTML = '';
+  }
 }
+
+
+// function buscaEnderecos(e){
+//     document.querySelector('#enderecos').innerHTML='';
+//     let infos_bairro = document.querySelector('#enderecos');
+
+//     let num_bairros = lista_enderecos.bairro.length;
+//     let b_index = -1;
+
+//     for(let x = 0; x < num_bairros; x++) {
+//         if (lista_enderecos.bairro[x].nome === e) {
+//             b_index = x;
+//             break;
+//         }
+//     }
+
+    // if (b_index !== -1) {
+    //     let bairro = lista_enderecos.bairro[b_index];
+    //     let nome_paragrafo = document.createElement('td');
+    //     let telefone_paragrafo = document.createElement('td');
+    //     nome_paragrafo.textContent = `${bairro.nome}`;
+    //     telefone_paragrafo.textContent = `${bairro.telefone}`;
+    //     infos_bairro.appendChild(nome_paragrafo);
+    //     infos_bairro.appendChild(telefone_paragrafo);
+      
+    // } else {
+    //     document.querySelector('#enderecos').innerHTML = '';
+    // }
+
+   
+
+//}
 
         let lista_cidades = {
             "cidades": [
