@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="div-label-horizontal">
+        <div class="div-grid-municipio">
+            <div class="div-label-municipio">
+                <label for="municipio">Município</label>
+                <select id="municipio" onchange="buscaBairros(this.value)">
+                    <option value="">Selecione a cidade</option>
+                    <option value="Fpolis">Florianópolis</option>
+                    <option value="SJ">São José</option>
+                    <option value="Sao P Alcantara">São Pedro de Alcântara</option>
+                 </select>
+            </div>
+
+             <div class="div-row-municipio">
+                 <div class="div-label-municipio">
+                         <label for="bairros">Bairro</label>
+                         <select id="bairros" onchange="buscaEnderecos(this.value)"></select>
+                 </div>
+             </div>
+             <div class="enderecos-grid">
+                <p id="enderecos">
+                    ...
+                </p>
+             </div>
+        </div>
+    </div>
+
+
+    <script>
+
+function buscaBairros(e){
+    document.querySelector("#bairros").innerHTML = '';
+    let cidade_select = document.querySelector("#bairros");
+
+    let num_cidades = lista_cidades.cidades.length;
+    let j_index = -1;
+
+    // aqui eu pego o index da cidade dentro do lista
+    for (let x = 0; x < num_cidades; x++) {
+        if (lista_cidades.cidades[x].sigla == e) {
+            j_index = x;
+        }
+    }
+
+    if (j_index != -1){
+    
+        // aqui eu percorro todas as cidades e crio os OPTIONS
+        lista_cidades.cidades[j_index].bairros.forEach(function(cidade){
+            let cid_opts = document.createElement('option');
+            cid_opts.setAttribute('value',cidade)
+            cid_opts.innerHTML = cidade;
+            cidade_select.appendChild(cid_opts);
+        });
+    } else {
+        document.querySelector("#bairros").innerHTML = '';
+    }
+}
+
+
+function buscaEnderecos(e){
+    document.querySelector('#enderecos').innerHTML='';
+    let infos_bairro = document.querySelector('#enderecos');
+
+    let num_bairros = lista_enderecos.bairro.length;
+    let b_index = -1;
+
+    for(let x = 0; x < num_bairros; x++) {
+        if (lista_enderecos.bairro[x].nome === e) {
+            b_index = x;
+            break;
+        }
+    }
+
+    if (b_index !== -1) {
+        let bairro = lista_enderecos.bairro[b_index];
+        let bairro_paragrafo = document.createElement('td');
+        let bairro_paragrafo1 = document.createElement('td');
+        let bairro_paragrafo2 = document.createElement('td');
+        bairro_paragrafo.textContent = `Nome: ${bairro.unidade}`;
+        bairro_paragrafo1.textContent = `Telefone: ${bairro.telefone}`;
+        bairro_paragrafo2.textContent = `Endereço: ${bairro.logradouro}`;
+        infos_bairro.appendChild(bairro_paragrafo);
+        infos_bairro.appendChild(bairro_paragrafo1);
+        infos_bairro.appendChild(bairro_paragrafo2);
+    } else {
+        document.querySelector('#enderecos').innerHTML = '';
+    }
+}
+
+        let lista_cidades = {
+            "cidades": [
+                {
+                    "sigla":"Fpolis",
+                    "nome": "Florianópolis",
+                    "bairros": [
+                        "Ponta das Canas",
+                        "Abraão",
+                        "Agronômica",
+                        "Armação do Pântano do Sul",
+                        "Balneario Estreito"   
+                    ]
+                },
+                {
+                    "sigla":"SJ",
+                    "nome": "São José",
+                    "bairros": [
+                        "Nossa Senhora do Rosário",
+                        "Praia Comprida"
+                    ]
+                },
+                {
+                    "sigla":"Sao P Alcantara",
+                    "nome": "São Pedro de Alcântara",
+                    "bairros": [
+                        "Colônia Satana"
+                    ]
+                }
+            ]
+        };
+
+        let lista_enderecos = {
+            "bairro": [
+                {
+                    "nome": "Ponta das Canas",
+                    "unidade": "Centro de Saúde Ponta das Canas",
+                    "telefone": "3284 1337/3284 2257",
+                    "logradouro": "Rua Alcides Bonateli, 342"
+                },
+                {
+                    "nome": "Abraão",
+                    "unidade": "Unidade Abraão",
+                    "telefone": "Telefone Abraão",
+                    "logradouro": "Endereço Abraão"
+                },
+                {
+                    "nome": "Agronômica",
+                    "unidade": "Unidade Agronômica",
+                    "telefone": "Telefone Agronômica",
+                    "logradouro": "Endereço Agronômica"
+                }
+            ]
+        };
+
+    </script>
+</body>
+</html>
