@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilizando ScrollBar</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        .container-lista{
+            align-items: center;
+            margin: auto;
+            display: flex;
+            width: 150px;
+            height: 150px;
+            background-color: lightgray;
+            border: 1px solid rgba(0, 0, 0, 0.404);
+            overflow-x: scroll;
+
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+        }
+        .container-lista li{
+            border: 1px solid blue;
+            width: 100px;
+            height: 50px;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="container-lista">
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+    
+</body>
+</html>
