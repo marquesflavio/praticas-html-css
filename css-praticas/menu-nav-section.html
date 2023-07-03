@@ -132,6 +132,20 @@
             });
             });
         });
+
+        /*Explicação do código:
+        
+        Essa função em JavaScript é um event listener que monitora o evento de rolagem da janela (scroll) e executa uma ação sempre que o evento ocorre.
+
+        A função começa obtendo a posição atual de rolagem vertical da janela, armazenada na variável currentScroll usando window.scrollY. Em seguida, ela itera sobre cada seção definida no código e verifica se a posição de rolagem atual está dentro dos limites superiores e inferiores da seção.
+
+        Para cada seção, o código obtém a posição superior (offsetTop) e a altura (offsetHeight) da seção. A posição superior é a distância em pixels do topo da página até o início da seção, enquanto a altura é a altura da própria seção.
+
+        Em seguida, ele verifica se a posição de rolagem atual (currentScroll) está entre a posição superior da seção (sectionTop) e o limite inferior da seção (sectionTop + sectionHeight). Se essa condição for verdadeira, significa que o usuário está atualmente visualizando essa seção na janela e, portanto, adiciona uma classe CSS chamada "section-border" ao item de menu correspondente a essa seção usando menuItems[index].classList.add("section-border").
+
+        Se a condição não for verdadeira, significa que o usuário não está visualizando essa seção e a classe CSS é removida do item de menu correspondente usando menuItems[index].classList.remove("section-border").
+
+        Em resumo, essa função adiciona uma classe CSS específica aos itens de menu que correspondem às seções visíveis na janela durante a rolagem, permitindo a aplicação de estilos personalizados aos itens de menu ativos. Isso é útil, por exemplo, para destacar visualmente o item de menu da seção atualmente visível na página.*/
     </script>
 </body>
 </html>
