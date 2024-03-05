@@ -1,0 +1,1 @@
+Nessa pasta adicionei elementos reutilizáveis que foram feitos apenas com HTML e CSS.
