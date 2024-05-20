@@ -1,1 +1,1 @@
-https://www.youtube.com/watch?v=oz4wSEhRRuU
+modelo padrão de navbar responsiva para projetos pessoais
